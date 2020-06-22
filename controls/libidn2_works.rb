@@ -40,7 +40,7 @@ control 'core-plans-libidn2' do
 
   idn2_works = command("#{File.join(target_dir, "idn2")} --version")
   describe idn2_works do
-    its('stdout') { should match /idn2 \(libidn2\) #{hab_pkg_path.stdout.strip.split('/')[5])}/ }
+    its('stdout') { should match /idn2 \(libidn2\) #{hab_pkg_path.stdout.strip.split('/')[5]}/ }
     its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
