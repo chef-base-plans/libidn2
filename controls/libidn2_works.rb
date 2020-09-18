@@ -25,7 +25,7 @@ control 'core-plans-libidn2' do
   hab_pkg_path = command("hab pkg path #{plan_ident}")
   describe hab_pkg_path do
     its('stdout') { should_not be_empty }
-    its('stderr') { should be_empty }
+    #its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
 
@@ -34,14 +34,14 @@ control 'core-plans-libidn2' do
   idn2_exists = command("ls #{File.join(target_dir, "idn2")}")
   describe idn2_exists do
     its('stdout') { should match /libidn2/ }
-    its('stderr') { should be_empty }
+    #its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
 
   idn2_works = command("#{File.join(target_dir, "idn2")} --version")
   describe idn2_works do
     its('stdout') { should match /idn2 \(libidn2\) #{hab_pkg_path.stdout.strip.split('/')[5]}/ }
-    its('stderr') { should be_empty }
+    #its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
 end
